@@ -14,8 +14,23 @@ if ($('#twitter').length) {
 	});	
 }
 
+if ($('#lastfm').length) {
+	console.log('Get last ten scrobbles.');
+	$.ajax({
+		type: 'GET',
+		dataType: 'jsonp',
+		cache: false,
+		url: 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=nassia_s&api_key=63f2426cee843e2cf84b36b2dd1a94de&format=json',
+		success: function(result) {
+			$.each(result.recenttracks.track, function(i, scrobble) {
+			    $('#lastfm').append('<p>'+scrobble.artist["#text"]+' - '+scrobble.name+'</p>');
+			});
+		}
+	});	
+}
+
 if ($('#instagram').length) {
-	console.log('Get last five instagram pictures.');
+	console.log('Get last twenty instagram pictures.');
 	$.ajax({
 		type: 'GET',
 		dataType: 'jsonp',
@@ -31,3 +46,4 @@ if ($('#instagram').length) {
 		}
 	});	
 }
+
