@@ -36,8 +36,17 @@ if ($('#jam').length) {
 		cache: false,
 		url: 'http://api.thisismyjam.com/1/nassia.json',
 		success: function(result) {
-			var likes = (result.jam.likesCount > 0) ? (', which has been liked '+result.jam.likesCount+' times!</p>') : '';
-			$('#jam').append('<p>Currently jamming to: <a href=\''+result.jam.url+'\' target=\'_blank\'>'+result.jam.artist+' - '+result.jam.title+'</a>'+likes+'</p>');
+			var rejams = (result.jam.rejamsCount > 0) ? ('has been rejammed '+result.jam.rejamsCount+' times') : '';
+			var likes = (result.jam.likesCount > 0) ? ('has been liked '+result.jam.likesCount+' times') : '';
+			var looksLikeIPickedAGreatTrack = '';
+			if ((rejams.length !== 0) && (likes.length !== 0)) {
+				looksLikeIPickedAGreatTrack = ', which '+rejams+' and '+likes+'! High five!';
+			} else if (rejams.length !== 0) {
+				looksLikeIPickedAGreatTrack = ', which '+rejams+'! High five!';
+			} else if (likes.length !== 0) {
+				looksLikeIPickedAGreatTrack = ', which '+likes+'!';
+			}
+			$('#jam').append('<p>This week I\'m jamming to <a href=\''+result.jam.url+'\' target=\'_blank\'>'+result.jam.artist+' - '+result.jam.title+'</a>'+looksLikeIPickedAGreatTrack+'</p>');
 			$('#jam').append('<blockquote><em>'+result.jam.caption+'</em></blockquote>');
 		}
 	});
