@@ -1,1 +1,7 @@
 .DS_Store
+
+css/nassia.min.css
+
+js/nassia.min.js
+
+api_examples/*
