@@ -1,8 +1,0 @@
-body{font-size:0.8em;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue','Helvetica','Arial','Lucida Grande',sans-serif;font-weight:300;letter-spacing:0.1em;}body h1{font-size:1.5em;font-weight:300;}
-body h2{font-size:1.5em;font-weight:300;}
-body div.wrapper{display:block;margin:auto;margin-top:50px;width:75%;}body div.wrapper div.top,body div.wrapper div.content,body div.wrapper div.footer{padding:10px 20px;}
-body div.wrapper div.top{border-bottom:1px solid #DDD;}body div.wrapper div.top .title-name h1{font-size:2em;font-weight:300;letter-spacing:0.2em;padding-right:50px;}
-body div.wrapper div.top .title-links{visibility:hidden;margin-top:1.7em;}body div.wrapper div.top .title-links ul{text-align:center;}
-body div.wrapper div.content{margin-left:3px;padding-top:30px;padding-bottom:50px;}
-body div.wrapper div.footer{border-top:1px solid #DDD;}body div.wrapper div.footer .copyright p{font-size:0.8em;color:#555;}
-body div.wrapper div.footer .social{font-size:0.9em;}body div.wrapper div.footer .social ul{text-align:center;}
