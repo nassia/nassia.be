@@ -36,7 +36,9 @@ if ($('#jam').length) {
 		cache: false,
 		url: 'http://api.thisismyjam.com/1/nassia.json',
 		success: function(result) {
-			$('#jam').append('<p>Currently jamming to: <a href=\''+result.jam.url+'\' target=\'_blank\'>'+result.jam.artist+' - '+result.jam.title+'</a><br/><small>'+result.jam.caption+'</small></p>');
+			var likes = (result.jam.likesCount > 0) ? (', which has been liked '+result.jam.likesCount+' times!</p>') : '';
+			$('#jam').append('<p>Currently jamming to: <a href=\''+result.jam.url+'\' target=\'_blank\'>'+result.jam.artist+' - '+result.jam.title+'</a>'+likes+'</p>');
+			$('#jam').append('<blockquote><em>'+result.jam.caption+'</em></blockquote>');
 		}
 	});
 }
