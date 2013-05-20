@@ -8,7 +8,7 @@ if ($('#twitter').length) {
 		url: 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=nassia&count=5',
 		success: function(result) {
 			$.each(result, function(i, tweet) {
-				$('#twitter').append('<p class=\'tweet\'>'+tweet.text+'<br/><small>'+tweet.created_at+'</small></p>');
+				$('#twitter').append('<p class=\'tweet\'>'+tweet.text+'<br/><small>'+moment(tweet.created_at).fromNow()+'</small></p>');
 			});
 		},
 		error: function(jqXHR, status, errorMsg) {
@@ -91,6 +91,26 @@ if ($('#instagram').length) {
 		error: function(jqXHR, status, errorMsg) {
 			console.log(jqXHR);
 			$('#instagram').append('<p>Couldn\'t retrieve data: ' + status + ' - ' + errorMsg + '</p>');
+		}
+	});
+}
+
+/** Get last commit to Github */
+if ($('#lastUpdatedOnGithub').length) {
+	$.ajax({
+		type: 'GET',
+		dataType: 'jsonp',
+		timeout : 1000,
+		cache: false,
+		url: 'https://api.github.com/repos/nassia/nassia.be',
+		success: function(result) {
+			var pushed = result.data.pushed_at;
+			pushed = moment(pushed).fromNow();
+			$('#lastUpdatedOnGithub').append(pushed);
+		},
+		error: function(jqXHR, status, errorMsg) {
+			console.log(jqXHR);
+			$('#lastfm').append('<p>Couldn\'t retrieve data: ' + status + ' - ' + errorMsg + '</p>');
 		}
 	});
 }
