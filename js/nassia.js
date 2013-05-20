@@ -8,7 +8,7 @@ if ($('#twitter').length) {
 		url: 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=nassia&count=5',
 		success: function(result) {
 			$.each(result, function(i, tweet) {
-				$('#twitter').append('<p class=\'tweet\'>'+tweet.text+'<br/><small>'+moment(tweet.created_at).fromNow()+'</small></p>');
+				$('#twitter').append('<p class=\'tweet\'>'+tweet.text+'<span class="spacer"/><small>'+moment(tweet.created_at).fromNow()+'</small></p>');
 			});
 		},
 		error: function(jqXHR, status, errorMsg) {
@@ -28,7 +28,7 @@ if ($('#lastfm').length) {
 		url: 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=nassia_s&api_key=63f2426cee843e2cf84b36b2dd1a94de&format=json',
 		success: function(result) {
 			$.each(result.recenttracks.track, function(i, scrobble) {
-				$('#lastfm').append('<p>'+scrobble.artist["#text"]+' - '+scrobble.name+'</p>');
+				$('#lastfm').append('<p>'+scrobble.artist["#text"]+' - '+scrobble.name+'<span class="spacer"/><small>'+moment(scrobble.date['#text']).fromNow()+'</small></p>');
 			});
 		},
 		error: function(jqXHR, status, errorMsg) {
@@ -83,7 +83,13 @@ if ($('#instagram').length) {
 		success: function(result) {
 			var append = '<ul class=\'thumbnails\'>';
 			$.each(result.data, function(i, igram) {
-				append += '<li><a href="'+igram.link+'" target="_blank"><img src="'+igram.images.thumbnail.url+'" title="'+igram.caption.text+'"></a></li>';
+				var date = moment(igram.created_time, 'X').fromNow();
+				var loc = (igram.location.name !== undefined) ? ' at '+igram.location.name : '';
+				var std_res_img_url = igram.images.standard_resolution.url;
+				var thumb_res_img_url = igram.images.thumbnail.url;
+				var caption = igram.caption.text;
+				var captionFormatted = '<p>'+caption+' ('+date+loc+')</p>';
+				append += '<li><a class="fancybox" rel="instagramgroup" href="'+std_res_img_url+'" title="'+captionFormatted+'"><img src="'+thumb_res_img_url+'" alt="'+caption+'"></a></li>';
 			});
 			append += '</ul>';
 			$('#instagram').append(append);
@@ -115,3 +121,19 @@ if ($('#lastUpdatedOnGithub').length) {
 	});
 }
 
+/** Show instagram images in a lightbox */
+$(document).ready(function() {
+	$(".fancybox").fancybox({
+		helpers: {
+			title: {
+				type: 'inside'
+			},
+			overlay: {
+				css: {
+					'background': 'rgba(0, 0, 0, 0.8)' // match bootstrap's modal background colour
+				}
+			},
+			autoScale: true,
+		}
+	});
+});
