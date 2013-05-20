@@ -9,6 +9,10 @@ if ($('#twitter').length) {
 			$.each(result, function(i, tweet) {
 				$('#twitter').append('<p class=\'tweet\'>'+tweet.text+'<br/><small>'+tweet.created_at+'</small></p>');
 			});
+		},
+		error: function(jqXHR, status, errorMsg) {
+			console.log(jqXHR);
+			$('#twitter').append('<p>Oops, something went wrong: ' + status + ' - ' + errorMsg + '</p>');
 		}
 	});
 }
@@ -24,6 +28,10 @@ if ($('#lastfm').length) {
 			$.each(result.recenttracks.track, function(i, scrobble) {
 				$('#lastfm').append('<p>'+scrobble.artist["#text"]+' - '+scrobble.name+'</p>');
 			});
+		},
+		error: function(jqXHR, status, errorMsg) {
+			console.log(jqXHR);
+			$('#lastfm').append('<p>Oops, something went wrong: ' + status + ' - ' + errorMsg + '</p>');
 		}
 	});
 }
@@ -36,18 +44,27 @@ if ($('#jam').length) {
 		cache: false,
 		url: 'http://api.thisismyjam.com/1/nassia.json',
 		success: function(result) {
-			var rejams = (result.jam.rejamsCount > 0) ? ('has been rejammed '+result.jam.rejamsCount+' times') : '';
-			var likes = (result.jam.likesCount > 0) ? ('has been liked '+result.jam.likesCount+' times') : '';
-			var looksLikeIPickedAGreatTrack = '';
-			if ((rejams.length !== 0) && (likes.length !== 0)) {
-				looksLikeIPickedAGreatTrack = ', which '+rejams+' and '+likes+'! High five!';
-			} else if (rejams.length !== 0) {
-				looksLikeIPickedAGreatTrack = ', which '+rejams+'! High five!';
-			} else if (likes.length !== 0) {
-				looksLikeIPickedAGreatTrack = ', which '+likes+'!';
+			var hasCurrentJam = result.person.hasCurrentJam;
+			if (hasCurrentJam) {
+				var rejams = (result.jam.rejamsCount > 0) ? ('has been rejammed '+result.jam.rejamsCount+' times') : '';
+				var likes = (result.jam.likesCount > 0) ? ('has been liked '+result.jam.likesCount+' times') : '';
+				var looksLikeIPickedAGreatTrack = '';
+				if ((rejams.length !== 0) && (likes.length !== 0)) {
+					looksLikeIPickedAGreatTrack = ', which '+rejams+' and '+likes+'! High five!';
+				} else if (rejams.length !== 0) {
+					looksLikeIPickedAGreatTrack = ', which '+rejams+'! High five!';
+				} else if (likes.length !== 0) {
+					looksLikeIPickedAGreatTrack = ', which '+likes+'!';
+				}
+				$('#jam').append('<p>This week I\'m jamming to <a href=\''+result.jam.url+'\' target=\'_blank\'>'+result.jam.artist+' - '+result.jam.title+'</a>'+looksLikeIPickedAGreatTrack+'</p>');
+				$('#jam').append('<blockquote><em>'+result.jam.caption+'</em></blockquote>');
+			} else {
+				$('#jam').append('<p>Currently not jamming to anything :( Why not make me a suggestion?</p>');
 			}
-			$('#jam').append('<p>This week I\'m jamming to <a href=\''+result.jam.url+'\' target=\'_blank\'>'+result.jam.artist+' - '+result.jam.title+'</a>'+looksLikeIPickedAGreatTrack+'</p>');
-			$('#jam').append('<blockquote><em>'+result.jam.caption+'</em></blockquote>');
+		},
+		error: function(jqXHR, status, errorMsg) {
+			console.log(jqXHR);
+			$('#jam').append('<p>Oops, something went wrong: ' + status + ' - ' + errorMsg + '</p>');
 		}
 	});
 }
@@ -66,6 +83,10 @@ if ($('#instagram').length) {
 			});
 			append += '</ul>';
 			$('#instagram').append(append);
+		},
+		error: function(jqXHR, status, errorMsg) {
+			console.log(jqXHR);
+			$('#instagram').append('<p>Oops, something went wrong: ' + status + ' - ' + errorMsg + '</p>');
 		}
 	});
 }
