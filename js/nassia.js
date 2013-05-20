@@ -3,6 +3,7 @@ if ($('#twitter').length) {
 	$.ajax({
 		type: 'GET',
 		dataType: 'jsonp',
+		timeout : 1000,
 		cache: false,
 		url: 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=nassia&count=5',
 		success: function(result) {
@@ -12,7 +13,7 @@ if ($('#twitter').length) {
 		},
 		error: function(jqXHR, status, errorMsg) {
 			console.log(jqXHR);
-			$('#twitter').append('<p>Oops, something went wrong: ' + status + ' - ' + errorMsg + '</p>');
+			$('#twitter').append('<p>Couldn\'t retrieve data: ' + status + ' - ' + errorMsg + '</p>');
 		}
 	});
 }
@@ -22,6 +23,7 @@ if ($('#lastfm').length) {
 	$.ajax({
 		type: 'GET',
 		dataType: 'jsonp',
+		timeout : 1000,
 		cache: false,
 		url: 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=nassia_s&api_key=63f2426cee843e2cf84b36b2dd1a94de&format=json',
 		success: function(result) {
@@ -31,7 +33,7 @@ if ($('#lastfm').length) {
 		},
 		error: function(jqXHR, status, errorMsg) {
 			console.log(jqXHR);
-			$('#lastfm').append('<p>Oops, something went wrong: ' + status + ' - ' + errorMsg + '</p>');
+			$('#lastfm').append('<p>Couldn\'t retrieve data: ' + status + ' - ' + errorMsg + '</p>');
 		}
 	});
 }
@@ -41,6 +43,7 @@ if ($('#jam').length) {
 	$.ajax({
 		type: 'GET',
 		dataType: 'jsonp',
+		timeout : 1000,
 		cache: false,
 		url: 'http://api.thisismyjam.com/1/nassia.json',
 		success: function(result) {
@@ -64,7 +67,7 @@ if ($('#jam').length) {
 		},
 		error: function(jqXHR, status, errorMsg) {
 			console.log(jqXHR);
-			$('#jam').append('<p>Oops, something went wrong: ' + status + ' - ' + errorMsg + '</p>');
+			$('#jam').append('<p>Couldn\'t retrieve data: ' + status + ' - ' + errorMsg + '</p>');
 		}
 	});
 }
@@ -74,6 +77,7 @@ if ($('#instagram').length) {
 	$.ajax({
 		type: 'GET',
 		dataType: 'jsonp',
+		timeout : 1000,
 		cache: false,
 		url: 'https://api.instagram.com/v1/users/21311155/media/recent/?access_token=21311155.ab103e5.a7a20249e87f4a4db3614c2c3a203804&count=10',
 		success: function(result) {
@@ -86,7 +90,7 @@ if ($('#instagram').length) {
 		},
 		error: function(jqXHR, status, errorMsg) {
 			console.log(jqXHR);
-			$('#instagram').append('<p>Oops, something went wrong: ' + status + ' - ' + errorMsg + '</p>');
+			$('#instagram').append('<p>Couldn\'t retrieve data: ' + status + ' - ' + errorMsg + '</p>');
 		}
 	});
 }
