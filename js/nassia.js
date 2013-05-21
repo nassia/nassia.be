@@ -25,10 +25,12 @@ if ($('#lastfm').length) {
 		dataType: 'jsonp',
 		timeout : 5000,
 		cache: false,
-		url: 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=nassia_s&api_key=63f2426cee843e2cf84b36b2dd1a94de&format=json',
+		url: 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=nassia_s&extended=1&api_key=63f2426cee843e2cf84b36b2dd1a94de&format=json',
 		success: function(result) {
 			$.each(result.recenttracks.track, function(i, scrobble) {
-				$('#lastfm').append('<p>'+scrobble.artist["#text"]+' - '+scrobble.name+'<span class="spacer"/><small>'+moment(scrobble.date['#text']).fromNow()+'</small></p>');
+				var loved = (scrobble.loved == 1) ? ' &hearts;' : '';
+				var date = (scrobble.date !== undefined) ? moment(scrobble.date['#text']).fromNow() : 'now playing';
+				$('#lastfm').append('<p>'+scrobble.artist.name+' - '+scrobble.name+loved+'<span class="spacer"/><small>'+date+'</small></p>');
 			});
 		},
 		error: function(jqXHR, status, errorMsg) {
