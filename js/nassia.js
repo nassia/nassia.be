@@ -28,9 +28,11 @@ if ($('#lastfm').length) {
 		url: 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=nassia_s&extended=1&api_key=63f2426cee843e2cf84b36b2dd1a94de&format=json',
 		success: function(result) {
 			$.each(result.recenttracks.track, function(i, scrobble) {
+				var artist = scrobble.artist.name;
+				var trackname = scrobble.name;
 				var loved = (scrobble.loved == 1) ? ' &hearts;' : '';
-				var date = (scrobble.date !== undefined) ? moment(scrobble.date['#text']).fromNow() : 'now playing';
-				$('#lastfm').append('<p>'+scrobble.artist.name+' - '+scrobble.name+loved+'<span class="spacer"/><small>'+date+'</small></p>');
+				var date = (scrobble.date !== undefined) ? (moment.unix(scrobble.date.uts)).fromNow() : 'now playing';
+				$('#lastfm').append('<p>'+artist+' - '+trackname+loved+'<span class="spacer"/><small>'+date+'</small></p>');
 			});
 		},
 		error: function(jqXHR, status, errorMsg) {
@@ -135,7 +137,7 @@ $(document).ready(function() {
 					'background': 'rgba(0, 0, 0, 0.8)' // match bootstrap's modal background colour
 				}
 			},
-			autoScale: true,
+			autoScale: true
 		}
 	});
 });
