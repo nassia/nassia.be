@@ -5,7 +5,9 @@ if ($('#twitter').length) {
 	function feedLoaded(result) {
 		if (!result.error) {
 			$.each(result.feed.entries, function(i, tweet) {
-				$('#twitter').append('<p class=\'tweet\'>'+(tweet.title).substr(8)+'<span class="spacer"/><small>'+moment(tweet.pubDate).fromNow()+'</small></p>')
+				var body = (tweet.title).substr(8);
+				var date = (tweet.publishedDate).substr(5);
+				$('#twitter').append('<p class=\'tweet\'>'+body+'<span class="spacer"/><small>'+moment(date).fromNow()+'</small></p>')
 			});
 		}
 	}
