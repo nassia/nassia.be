@@ -1,21 +1,32 @@
 /** Get last 5 tweets */
 if ($('#twitter').length) {
-	$.ajax({
-		type: 'GET',
-		dataType: 'jsonp',
-		timeout : 5000,
-		cache: false,
-		url: 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=nassia&count=5',
-		success: function(result) {
-			$.each(result, function(i, tweet) {
-				$('#twitter').append('<p class=\'tweet\'>'+tweet.text+'<span class="spacer"/><small>'+moment(tweet.created_at).fromNow()+'</small></p>');
-			});
-		},
-		error: function(jqXHR, status, errorMsg) {
-			console.log(jqXHR);
-			$('#twitter').append('<p>Couldn\'t retrieve data: ' + status + ' - ' + errorMsg + '</p>');
-		}
-	});
+	google.load("feeds", "1");
+	function feedLoaded(result) {
+	  if (!result.error) {
+	    // Grab the container we will put the results into
+	    var container = document.getElementById("twitter");
+	    container.innerHTML = '';
+
+	    // Loop through the feeds, putting the titles onto the page.
+	    // Check out the result object for a list of properties returned in each entry.
+	    // http://code.google.com/apis/ajaxfeeds/documentation/reference.html#JSON
+	    for (var i = 0; i < result.feed.entries.length; i++) {
+	      var entry = result.feed.entries[i];
+	      var div = document.createElement("p");
+	      div.appendChild(document.createTextNode(entry.title));
+	      container.appendChild(div);
+	    }
+	  }
+	}
+	function OnLoad() {
+	  // Create a feed instance that will grab Digg's feed.
+	  var feed = new google.feeds.Feed("http://www.twitter-rss.com/user_timeline.php?screen_name=nassia");
+
+	  // Calling load sends the request off.  It requires a callback function.
+	  feed.load(feedLoaded);
+	}
+
+	google.setOnLoadCallback(OnLoad);​
 }
 
 /** Get last 10 scrobbles */
