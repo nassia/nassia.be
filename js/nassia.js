@@ -1,31 +1,22 @@
 /** Get last 5 tweets */
 if ($('#twitter').length) {
 	google.load("feeds", "1");
+	
 	function feedLoaded(result) {
-	  if (!result.error) {
-	    // Grab the container we will put the results into
-	    var container = document.getElementById("twitter");
-	    container.innerHTML = '';
-
-	    // Loop through the feeds, putting the titles onto the page.
-	    // Check out the result object for a list of properties returned in each entry.
-	    // http://code.google.com/apis/ajaxfeeds/documentation/reference.html#JSON
-	    for (var i = 0; i < result.feed.entries.length; i++) {
-	      var entry = result.feed.entries[i];
-	      var div = document.createElement("p");
-	      div.appendChild(document.createTextNode(entry.title));
-	      container.appendChild(div);
-	    }
-	  }
+		if (!result.error) {
+			console.log(result.feed.entries.length)
+			$.each(result.feed.entries, function(i, tweet) {
+				console.log(tweet.title)
+				$('#twitter').append('<p class=\'tweet\'>'+(tweet.title).substr(8)+'<span class="spacer"/><small>'+moment(tweet.pubDate).fromNow()+'</small></p>')
+			});
+		}
 	}
 	function OnLoad() {
-	  // Create a feed instance that will grab Digg's feed.
-	  var feed = new google.feeds.Feed("http://www.twitter-rss.com/user_timeline.php?screen_name=nassia");
-
-	  // Calling load sends the request off.  It requires a callback function.
-	  feed.load(feedLoaded);
+		// Create a feed instance with 5 entries
+		var feed = new google.feeds.Feed("http://www.twitter-rss.com/user_timeline.php?screen_name=nassia");
+		feed.setNumEntries(5);
+		feed.load(feedLoaded); // Calling load sends the request off, requires a callback function
 	}
-
 	google.setOnLoadCallback(OnLoad);​
 }
 
