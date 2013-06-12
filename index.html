@@ -91,13 +91,13 @@
 				</ul>
 				<p>Because having a site that updates itself is totally awesome, I used these lovely APIs:</p>
 				<ul>
-					<li><a href='http://dev.twitter.com/docs' target='_blank'>Twitter API</a></li>
 					<li><a href='http://www.last.fm/api' target='_blank'>Last.FM API</a></li>
 					<li><a href='http://www.thisismyjam.com/developers/docs' target='_blank'>ThisIsMyJam API</a></li>
 					<li><a href='http://instagram.com/developer/' target='_blank'>Instagram API</a></li>
 					<li><a href='http://developer.github.com/' target='_blank'>Github API</a></li>
+					<li>The <a href='http://dev.twitter.com/docs' target='_blank'>Twitter API</a> requires authentication for all requests since mid June 2013, which can't be done (securely) in Javascript alone. I used the <a href='https://developers.google.com/feed/' target='_blank'>Google Feed API</a> on an RSS generated from my timeline by <a href='http://www.twitter-rss.com/' target='_blank'>Twitter-RSS</a> instead.</li>
 				</ul>
-				<p><a href='http://github.com/nassia/nassia.be' target='_blank'>Full source for this site</a> is available on Github. <div id='lastUpdatedOnGithub'></div></p>
+				<p><span id='lastUpdatedOnGithub'></span> <a href='http://github.com/nassia/nassia.be' target='_blank'>Full source for this site</a> is available on Github.</p>
 			</div>
 			<div class="modal-footer">
 				<small>press ESC or</small> <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

@@ -136,6 +136,11 @@ span.spacer {
 }
 
 
+.modal {
+	width:35%;
+	margin-left: -(35%/2);
+}
+
 
 // Smartphones (portrait and landscape)
 @media only screen and (max-width : 767px) {
@@ -150,6 +155,11 @@ span.spacer {
 	// Hide all but first instagram on small screens
 	#instagram .thumbnails li:not(:first-child) {
 		display: none;
+	}
+	
+	.modal {
+		width:90%;
+		margin-left: -(90%/2);
 	}
 }
 
