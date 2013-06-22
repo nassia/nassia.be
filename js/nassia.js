@@ -1,23 +1,7 @@
 /** Get last 5 tweets */
 if ($('#twitter').length) {
-	google.load("feeds", "1");
-	
-	function feedLoaded(result) {
-		if (!result.error) {
-			$.each(result.feed.entries, function(i, tweet) {
-				var body = (tweet.title).substr(8);
-				var date = (tweet.publishedDate).substr(5);
-				$('#twitter').append('<p class=\'tweet\'>'+body+'<span class="spacer"/><small>'+moment(date).fromNow()+'</small></p>')
-			});
-		}
-	}
-	function OnLoad() {
-		// Create a feed instance with 5 entries
-		var feed = new google.feeds.Feed("http://www.twitter-rss.com/user_timeline.php?screen_name=nassia");
-		feed.setNumEntries(5);
-		feed.load(feedLoaded); // Calling load sends the request off, requires a callback function
-	}
-	google.setOnLoadCallback(OnLoad);​
+	// params: twitter widget id, div id, number of tweets, display replies, don't display profile picture, show date, date formatting function
+	twitterFetcher.fetch('348547818933342208', 'twitter', 5, true, false, true, moment.fromNow);
 }
 
 /** Get last 10 scrobbles */

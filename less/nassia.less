@@ -135,6 +135,19 @@ span.spacer {
 	margin-left: 1em;
 }
 
+#twitter {
+	ul li {
+		list-style:none;
+		margin-left: -25px;
+	}
+	
+	p.timePosted {
+		// emulate small
+		font-size: 85%;
+		color: #666;
+	}
+}
+
 
 // Smartphones (portrait and landscape)
 @media only screen and (max-width : 767px) {
@@ -172,16 +185,16 @@ span.spacer {
 // iPads (portrait)
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
 }
+*/
 
 // Desktops and laptops
-@media only screen and (min-width : 1224px) {
+@media only screen and (min-width : 1024px) {
+	.modal {
+		width: 50%;
+		margin-left: -(50%/2);
+	}
 }
-*/
 
 // Large screens
 @media only screen and (min-width : 1824px) {
-	.modal {
-		width:35%;
-		margin-left: -(35%/2);
-	}
 }
