@@ -1,7 +1,22 @@
 /** Get last 5 tweets */
 if ($('#twitter').length) {
-	// params: twitter widget id, div id, number of tweets, display replies, don't display profile picture, show date, date formatting function
-	twitterFetcher.fetch('348547818933342208', 'twitter', 5, true, false, true, moment.fromNow);
+	var twitterWidgetId = '348547818933342208';
+	var elementId = '';
+	var numTweets = 5;
+	var hyperlinkURLs = true;
+	var showPhoto = false;
+	var showTime = true;
+	var timeFormatFunc = moment.fromNow;
+	var showRetweets = true;
+	var dataFormatFunc = function(result) {
+		$.each(result, function(i, tweet) {
+			// do some replacing, I want my old format back!
+			tweet = tweet.replace('</p><p class="timePosted">Posted ', '<span class="spacer"/><small>')
+			tweet = tweet.replace('</p>', '</small></p>')
+			$('#twitter').append(tweet);
+		});
+	}
+	twitterFetcher.fetch(twitterWidgetId, elementId, numTweets, hyperlinkURLs, showPhoto, showTime, timeFormatFunc, showRetweets, dataFormatFunc);
 }
 
 /** Get last 10 scrobbles */
