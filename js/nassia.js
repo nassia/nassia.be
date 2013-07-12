@@ -31,7 +31,7 @@ if ($('#lastfm').length) {
 			$.each(result.recenttracks.track, function(i, scrobble) {
 				var artist = scrobble.artist.name;
 				var trackname = scrobble.name;
-				var loved = (scrobble.loved == 1) ? ' &hearts;' : '';
+				var loved = (scrobble.loved == 1) ? ' <i class=\'icon-heart\'></i>' : '';
 				var date = (scrobble.date !== undefined) ? (moment.unix(scrobble.date.uts)).fromNow() : 'now playing';
 				$('#lastfm').append('<p>'+artist+' - '+trackname+loved+'<span class="spacer"/><small>'+date+'</small></p>');
 			});
@@ -92,9 +92,9 @@ if ($('#instagram').length) {
 				var loc = ((igram.location !== undefined) && (igram.location.name !== undefined)) ? ' at '+igram.location.name : '';
 				var std_res_img_url = igram.images.standard_resolution.url;
 				var thumb_res_img_url = igram.images.thumbnail.url;
-				var likes = (igram.likes.count > 0) ? '<span class=\'badge\'>&hearts; '+igram.likes.count+'</span> ' : '';
+				var likes = (igram.likes.count > 0) ? '<small class=\'pull-right\'><i class=\'icon-heart\'></i> '+igram.likes.count+'</small>' : '';
 				var caption = ((igram.caption !== null) && (igram.caption.text !== null)) ? igram.caption.text : '';
-				var captionFormatted = '<p>'+likes+caption+' ('+date+loc+')</p>';
+				var captionFormatted = '<p>'+caption+' ('+date+loc+')'+likes+'</p>';
 				append += '<li><a class="fancybox" rel="instagramgroup" href="'+std_res_img_url+'" title="'+captionFormatted+'"><img src="'+thumb_res_img_url+'" alt="'+caption+'"></a></li>';
 			});
 			append += '</ul>';
