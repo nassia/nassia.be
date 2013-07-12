@@ -89,11 +89,12 @@ if ($('#instagram').length) {
 			var append = '<ul class=\'thumbnails\'>';
 			$.each(result.data, function(i, igram) {
 				var date = moment(igram.created_time, 'X').fromNow();
-				var loc = (igram.location.name !== undefined) ? ' at '+igram.location.name : '';
+				var loc = ((igram.location !== undefined) && (igram.location.name !== undefined)) ? ' at '+igram.location.name : '';
 				var std_res_img_url = igram.images.standard_resolution.url;
 				var thumb_res_img_url = igram.images.thumbnail.url;
-				var caption = igram.caption.text;
-				var captionFormatted = '<p>'+caption+' ('+date+loc+')</p>';
+				var likes = (igram.likes.count > 0) ? '<span class=\'badge\'>&hearts; '+igram.likes.count+'</span> ' : '';
+				var caption = ((igram.caption !== null) && (igram.caption.text !== null)) ? igram.caption.text : '';
+				var captionFormatted = '<p>'+likes+caption+' ('+date+loc+')</p>';
 				append += '<li><a class="fancybox" rel="instagramgroup" href="'+std_res_img_url+'" title="'+captionFormatted+'"><img src="'+thumb_res_img_url+'" alt="'+caption+'"></a></li>';
 			});
 			append += '</ul>';
