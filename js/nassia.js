@@ -10,9 +10,11 @@ if ($('#twitter').length) {
 	var showRetweets = true;
 	var dataFormatFunc = function(result) {
 		$.each(result, function(i, tweet) {
+			console.log(tweet)
 			// do some replacing, I want my old format back!
-			tweet = tweet.replace('</p><p class="timePosted">Posted ', '<span class="spacer"/><small>')
-			tweet = tweet.replace('</p>', '</small></p>')
+			tweet = tweet.replace('</p><p class="timePosted">Posted ', '<span class="spacer"/><small>');
+			tweet = tweet.replace('</p>', '</small></p>');
+			tweet = tweet.replace('<a href', '<a target="_blank" href'); // + links in new tabs/windows
 			$('#twitter').append(tweet);
 		});
 	}
