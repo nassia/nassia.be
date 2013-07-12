@@ -9,12 +9,18 @@ if ($('#twitter').length) {
 	var timeFormatFunc = moment.fromNow;
 	var showRetweets = true;
 	var dataFormatFunc = function(result) {
-		$.each(result, function(i, tweet) {
-			console.log(tweet)
+		$.each(result, function(i, tweet) {			
+			// Mark replies with icon
+			tweet = tweet.replace('<p class="tweet"><a href="https://twitter.com/', '<p class="tweet"><i class=\'icon-reply\'/> <a href="https://twitter.com/');
+
+			// Mark RTs with icon - currently impossible :(
+			tweet = tweet.replace('<p class="tweet">RT', '<p class="tweet"><i class=\'icon-retweet\'/> RT');
+			
 			// do some replacing, I want my old format back!
 			tweet = tweet.replace('</p><p class="timePosted">Posted ', '<span class="spacer"/><small>');
 			tweet = tweet.replace('</p>', '</small></p>');
 			tweet = tweet.replace('<a href', '<a target="_blank" href'); // + links in new tabs/windows
+			
 			$('#twitter').append(tweet);
 		});
 	}
@@ -34,7 +40,7 @@ if ($('#lastfm').length) {
 				var artist = scrobble.artist.name;
 				var trackname = scrobble.name;
 				var loved = (scrobble.loved == 1) ? ' <i class=\'icon-heart\'></i>' : '';
-				var date = (scrobble.date !== undefined) ? (moment.unix(scrobble.date.uts)).fromNow() : 'now playing';
+				var date = (scrobble.date !== undefined) ? (moment.unix(scrobble.date.uts)).fromNow() : '<i class=\'icon-music\'/> now playing';
 				$('#lastfm').append('<p>'+artist+' - '+trackname+loved+'<span class="spacer"/><small>'+date+'</small></p>');
 			});
 		},
@@ -65,6 +71,8 @@ if ($('#jam').length) {
 					looksLikeIPickedAGreatTrack = ', which '+rejams+'! High five!';
 				} else if (likes.length !== 0) {
 					looksLikeIPickedAGreatTrack = ', which '+likes+'!';
+				} else {
+					looksLikeIPickedAGreatTrack = '.'; // Forever alone :(
 				}
 				$('#jam').append('<p>This week I\'m jamming to <a href=\''+result.jam.url+'\' target=\'_blank\'>'+result.jam.artist+' - '+result.jam.title+'</a>'+looksLikeIPickedAGreatTrack+'</p>');
 				$('#jam').append('<blockquote><em>'+result.jam.caption+'</em></blockquote>');
