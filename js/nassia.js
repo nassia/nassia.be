@@ -128,7 +128,7 @@ if ($('#lastUpdatedOnGithub').length) {
 		success: function(result) {
 			var pushed = result.data.pushed_at;
 			pushed = moment(pushed).fromNow();
-			$('#lastUpdatedOnGithub').append('Last code update was ' + pushed + '.');
+			$('#lastUpdatedOnGithub').append('Last code update was ' + pushed + '. Updates are announced on the <a href=\'http://twitter.com/nassia_be\' target=\'_blank\'>Nassia.be Twitter</a>.');
 		},
 		error: function(jqXHR, status, errorMsg) {
 			console.log(jqXHR);
