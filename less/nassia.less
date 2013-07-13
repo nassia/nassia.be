@@ -138,17 +138,55 @@ span.spacer {
 
 // Smartphones (portrait and landscape)
 @media only screen and (max-width : 767px) {
-	// Hide profile photo on small screens
-	.profile-photo {
-		width: 0px;
-		height: 0px;
-		margin: 0px;
-		visibility: hidden;
+	body {
+		div.wrapper {
+			display: block;
+			margin: auto;
+			width: 90%;
+			margin-top: 30px;
+			
+			div.top {
+				margin: 0px;
+				.title-links {
+					visibility: hidden;
+					margin: 0px;
+				}
+			}
+			
+			div.content {
+				div.profile {
+					h2 {
+						margin-top: 0.5em;
+					}
+					// Hide profile photo on small screens
+					.profile-photo {
+						width: 0px;
+						height: 0px;
+						margin: 0px;
+						visibility: hidden;
+					}
+					// Make text full-width
+					.profile-text {
+						width: 100%;
+					}
+				}
+			}
+		}
 	}
+	
+	
 	
 	// Hide all but first instagram on small screens
 	#instagram .thumbnails li:not(:first-child) {
 		display: none;
+	}
+}
+
+// Desktops and laptops
+@media only screen and (min-width : 1024px) {
+	.modal {
+		width: 50%;
+		margin-left: -(50%/2);
 	}
 }
 
@@ -172,16 +210,8 @@ span.spacer {
 // iPads (portrait)
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
 }
-*/
-
-// Desktops and laptops
-@media only screen and (min-width : 1024px) {
-	.modal {
-		width: 50%;
-		margin-left: -(50%/2);
-	}
-}
 
 // Large screens
 @media only screen and (min-width : 1824px) {
 }
+*/
