@@ -87,14 +87,14 @@ if ($('#jam').length) {
 	});
 }
 
-/** Get last 10 instagram pictures */
+/** Get last 12 instagram pictures */
 if ($('#instagram').length) {
 	$.ajax({
 		type: 'GET',
 		dataType: 'jsonp',
 		timeout : 5000,
 		cache: false,
-		url: 'https://api.instagram.com/v1/users/21311155/media/recent/?access_token=21311155.ab103e5.a7a20249e87f4a4db3614c2c3a203804&count=10',
+		url: 'https://api.instagram.com/v1/users/21311155/media/recent/?access_token=21311155.ab103e5.a7a20249e87f4a4db3614c2c3a203804&count=12',
 		success: function(result) {
 			var append = '<ul class=\'thumbnails\'>';
 			$.each(result.data, function(i, igram) {
