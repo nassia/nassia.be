@@ -104,7 +104,7 @@ if ($('#instagram').length) {
 				var thumb_res_img_url = igram.images.thumbnail.url;
 				var likes = (igram.likes.count > 0) ? '<small class=\'pull-right\'><i class=\'icon-heart\'></i> '+igram.likes.count+'</small>' : '';
 				var caption = ((igram.caption !== null) && (igram.caption.text !== null)) ? igram.caption.text : '';
-				var captionFormatted = '<p>'+caption+' ('+date+loc+')'+likes+'</p>';
+				var captionFormatted = '<p>'+caption.replace(/"/g, '&quot;')+' ('+date+loc+')'+likes+'</p>';
 				append += '<li><a class="fancybox" rel="instagramgroup" href="'+std_res_img_url+'" title="'+captionFormatted+'"><img src="'+thumb_res_img_url+'" alt="'+caption+'"></a></li>';
 			});
 			append += '</ul>';
