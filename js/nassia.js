@@ -9,7 +9,7 @@ if ($('#twitter').length) {
 	var timeFormatFunc = moment.fromNow;
 	var showRetweets = true;
 	var dataFormatFunc = function(result) {
-		$.each(result, function(i, tweet) {			
+		$.each(result, function(i, tweet) {
 			// Mark replies with icon
 			tweet = tweet.replace('<p class="tweet"><a href="https://twitter.com/', '<p class="tweet"><i class=\'icon-reply\'/> <a href="https://twitter.com/');
 
@@ -23,7 +23,7 @@ if ($('#twitter').length) {
 			
 			$('#twitter').append(tweet);
 		});
-	}
+	};
 	twitterFetcher.fetch(twitterWidgetId, elementId, numTweets, hyperlinkURLs, showPhoto, showTime, timeFormatFunc, showRetweets, dataFormatFunc);
 }
 
@@ -99,7 +99,7 @@ if ($('#instagram').length) {
 			var append = '<ul class=\'thumbnails\'>';
 			$.each(result.data, function(i, igram) {
 				var date = moment(igram.created_time, 'X').fromNow();
-				var loc = ((igram.location !== undefined) && (igram.location.name !== undefined)) ? ' at '+igram.location.name : '';
+				var loc = ((igram.location !== null) && (igram.location !== undefined) && (igram.location.name !== undefined)) ? ' at '+igram.location.name : '';
 				var std_res_img_url = igram.images.standard_resolution.url;
 				var thumb_res_img_url = igram.images.thumbnail.url;
 				var likes = (igram.likes.count > 0) ? '<small class=\'pull-right\'><i class=\'icon-heart\'></i> '+igram.likes.count+'</small>' : '';
