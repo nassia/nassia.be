@@ -1,14 +1,14 @@
 body {
-	font-size: 0.8em;
-	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif; 
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
 	font-weight: 300;
 	letter-spacing: 0.1em;
-	
+
 	@grayDark: #333333;
+	@grayLight: #666;
 	@bluegreen: #34C9AE;
 	@bluegreenDarker: #36B39C;
 	@bluegreenDarkest: #118370;
-	
+
 	h1 {
 		font-size: 1.5em;
 		font-weight: 300;
@@ -16,11 +16,12 @@ body {
 			font-size: 0.6em;
 		}
 	}
-	
+
 	h2 {
-		margin-top: 2em;
+		padding-top: 2.5em;
+		margin-bottom: 0.6em;
 		font-size: 1.5em;
-		font-weight: 300;
+		letter-spacing: 0.15em;
 		a, a:visited {
 			color: @grayDark;
 			text-decoration: none;
@@ -31,54 +32,60 @@ body {
 			text-decoration: none;
 		}
 	}
-	
+
 	h3 {
 		font-size: 1.5em;
 		font-weight: 300;
 	}
-	
+
 	.fancybox-title {
-		font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif; 
+		font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
 		font-weight: 300;
 		letter-spacing: 0.1em;
 	}
-	
+
 	p.tweet {
 		margin-bottom: 10px;
 	}
-	
+
 	a, a:visited {
 		color: @bluegreen;
 	}
 	a:hover {
 		color: @bluegreenDarker;
 	}
-	
+
 	small {
-		color: #666;
+		color: @grayLight;
 	}
-	
+
 	div.wrapper {
 		display: block;
 		margin: auto;
 		margin-top: 50px;
 		width: 75%;
-		
+
 		div.top, div.content, div.footer {
-			padding: 10px 20px;
+			padding: 0px 20px;
 		}
-		
+
 		div.top {
 			border-bottom: 1px solid #DDD;
-			
+
 			.title-name h1 {
 				font-size: 2em;
 				font-weight: 300;
 				letter-spacing: 0.2em;
 				padding-right: 50px;
+
+				small {
+					font-size: 0.5em;
+					letter-spacing: 0.15em;
+					color: #CCC;
+				}
 			}
-			
-			.title-links {
+
+			.title-links { // someday...
 				visibility: hidden;
 				margin-top: 1.7em;
 				ul {
@@ -86,43 +93,47 @@ body {
 				}
 			}
 		}
-		
+
 		div.content {
-			margin-left: 3px;
-			margin-right: 3px;
-			padding-top: 30px;
+			padding-top: 20px;
 			padding-bottom: 50px;
-			
+			overflow: hidden;
+
 			div.profile {
 				.profile-photo {
-					min-width:55px;
-					width: 10%;
-					margin: 0px 15px 0px 1px;
+					min-width: 55px;
+					margin: 5px 15px 0px 0px;
+
 					img {
 						min-width:50px;
 						min-height:50px;
-						margin: 0px 5px 0px 1px;
 					}
 				}
-				
+
 				.profile-text {
-					width: 80%;
+					width: 75%;
 					font-size: 1.15em;
 					line-height: 1.75em;
+					padding-bottom: 2em;
 				}
 			}
+
+			ul.thumbnails li {
+				padding-bottom: 10px;
+			}
 		}
-		
+
 		div.footer {
 			border-top: 1px solid #DDD;
-			
+			padding-top: 0.5em;
+
 			.copyright p {
 				font-size: 0.8em;
 				color: #555;
 			}
 			.social {
 				font-size: 0.9em;
-				
+
 				ul {
 					text-align: center;
 				}
@@ -144,7 +155,7 @@ span.spacer {
 			margin: auto;
 			width: 90%;
 			margin-top: 30px;
-			
+
 			div.top {
 				margin: 0px;
 				.title-links {
@@ -152,7 +163,7 @@ span.spacer {
 					margin: 0px;
 				}
 			}
-			
+
 			div.content {
 				div.profile {
 					h2 {
@@ -173,24 +184,20 @@ span.spacer {
 			}
 		}
 	}
-	
-	
-	
+
+
+
 	// Hide all but first instagram on small screens
 	#instagram .thumbnails li:not(:first-child) {
 		display: none;
 	}
 }
 
+/*
 // Desktops and laptops
 @media only screen and (min-width : 1024px) {
-	.modal {
-		width: 50%;
-		margin-left: -(50%/2);
-	}
 }
 
-/*
 // Smartphones (landscape)
 @media only screen and (min-width : 321px) {
 }

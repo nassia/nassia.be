@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Nastassia Smeets</title>
 		<meta name="title" content="Nastassia Smeets - Nassia.be" />
 		<meta name="description" content="Keep up with Nassia throughout the Interwebs." />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta property="og:title" content="Nastassia Smeets - Nassia.be" />
 		<meta property="og:description" content="Keep up with Nassia throughout the Interwebs." />
 		<meta property="og:image" content="images/screenshot_thumb.png" />
@@ -30,51 +32,47 @@
 		</script>
 	</head>
 	<body>
-		<div class="wrapper">
-			<div class="row-fluid top">
+		<div class="wrapper container-fluid">
+			<div class="row top">
 				<div class="title-name pull-left">
-					<h1>Nastassia Smeets <small>(a work in progress)</small></h1>
+					<h1>Nastassia Smeets <small></small></h1>
 				</div>
 				<div class="title-links pull-right">
-					<ul class="inline">
+					<ul class="list-inline">
 						<li>Nav1</li>
 						<li>Nav2</li>
 					</ul>
 				</div>
 			</div>
-			<div class="row-fluid content">
-				<div class='pull-left span8'>
-					<div class='profile'>
+			<div class="row content">
+				<div class="pull-left col-md-8">
+					<div class="profile">
 						<h2>Hello there.</h2>
-						<div class="row-fluid">
-							<div class="profile-photo pull-left">
-								<img src='images/profile_thumb.jpg' class='profile img-rounded' />
-							</div>
-							<div class="profile-text pull-left">
-								<p>My name is Nastassia, but my friends can call me Nassia. 
-									I'm a computer scientist girl from Antwerp, Belgium with a passion for music. 
-									I also enjoy the beautiful night sky, especially when there's a meteor shower around.
-									Follow what I'm up to on this page!
-								</p>
-							</div>
+						<div class="profile-photo pull-left">
+							<img src='images/profile_thumb.jpg' class='profile img-rounded' />
+						</div>
+						<div class="profile-text pull-left">
+							<p>My name is Nastassia, but my friends can call me Nassia.
+								I'm a computer scientist girl from Antwerp, Belgium with a passion for music.
+								I also enjoy the beautiful night sky, especially when there's a meteor shower around.
+								Follow what I'm up to on this page!
+							</p>
 						</div>
 					</div>
-					
-					<h2><a href='http://www.thisismyjam.com/nassia' target='_blank'>#thisismyjam</a></h2><div id='jam'></div>
-				
+
 					<h2><a href='http://www.instagram.com/nassia_s' target='_blank'>#instagram</a></h2><div id='instagram'></div>
 				</div>
-				<div class='pull-right span4'>
+				<div class='col-md-4'>
 					<h2><a href='http://www.lastfm.com/user/nassia_s' target='_blank'>#lastfm</a> #nowplaying</h2><div id='lastfm'></div>
 					<h2><a href='http://www.twitter.com/nassia' target='_blank'>#twitter</a></h2><div id='twitter'></div>
 				</div>
 			</div>
-			<div class="row-fluid footer">
+			<div class="row footer">
 				<div class="copyright pull-left">
-					<p>&copy; Lovingly handcrafted by Nastassia Smeets in 2013, using <a href='#shoutoutsModal' data-toggle='modal'>this cool technology</a>.</p>
+					<p>&copy; Lovingly handcrafted by Nastassia Smeets in 2013, using <a href='#shoutoutsModal' data-toggle='modal' data-target='#shoutoutsModal'>this cool technology</a>.</p>
 				</div>
 				<div class="social pull-right">
-					<ul class="inline">
+					<ul class="list-inline">
 						<li><a href='mailto:nassiaATgmailDOTcom'>E-mail</a></li>
 						<li><a href='http://www.twitter.com/nassia' target='_blank'>Twitter</a></li>
 						<li><a href='http://www.facebook.com/nassia' target='_blank'>Facebook</a></li>
@@ -88,38 +86,42 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- Modal -->
-		<div id="shoutoutsModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="shoutoutsModalLabel" aria-hidden="true">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h3 id="shoutoutsModalLabel">Technologies used</h3>
-			</div>
-			<div class="modal-body">
-				<p>Written in HTML, Javascript and CSS (or actually, <a href='http://lesscss.org/' target='_blank'>LESS</a>). I used <a href='http://incident57.com/codekit/' target='_blank'>CodeKit</a> for compiling the LESS source and minifying the CSS/JS files.</p>
-				<p>Writing everything yourself is silly when you can use these great open source libraries:</p>
-				<ul>
-					<li><a href='http://twitter.github.io/bootstrap/' target='_blank'>Twitter Bootstrap</a> as a base for styling and stuff,</li>
-					<li><a href='http://twitter.github.io/bootstrap/' target='_blank'>jQuery</a> (I don't know how people did it before?!),</li>
-					<li><a href='http://fancyapps.com/fancybox/' target='_blank'>FancyBox</a> to display my instagrams in a lightbox,</li>
-					<li><a href='http://momentjs.com/' target='_blank'>Moment.js</a> for time formatting.</li>
-				</ul>
-				<p>Because having a site that updates itself is totally awesome, I used these lovely APIs:</p>
-				<ul>
-					<li><a href='http://www.last.fm/api' target='_blank'>Last.FM API</a></li>
-					<li><a href='http://www.thisismyjam.com/developers/docs' target='_blank'>ThisIsMyJam API</a></li>
-					<li><a href='http://instagram.com/developer/' target='_blank'>Instagram API</a></li>
-					<li><a href='http://developer.github.com/' target='_blank'>Github API</a></li>
-					<li>The <a href='http://dev.twitter.com/docs' target='_blank'>Twitter API</a> requires authentication for all requests since mid June 2013, which can't be done (securely) in Javascript alone. I used <a href='http://jasonmayes.com/projects/twitterApi' target='_blank'>this script</a> instead.</li>
-				</ul>
-				<p id='lastUpdatedOnGithub'></p>
-				<p><a href='http://github.com/nassia/nassia.be' target='_blank'>Full source for this site</a> is available on Github.</p>
-			</div>
-			<div class="modal-footer">
-				<small>press ESC or</small> <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		<div id="shoutoutsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="shoutoutsModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close">&times;</button>
+						<h3 class="modal-title" id="shoutoutsModalLabel">Technologies used</h3>
+					</div>
+					<div class="modal-body">
+						<p>Written in HTML, Javascript and CSS (or actually, <a href='http://lesscss.org/' target='_blank'>LESS</a>). I used <a href='http://incident57.com/codekit/' target='_blank'>CodeKit</a> for compiling the LESS source and minifying the CSS/JS files.</p>
+						<p>Writing everything yourself is silly when you can use these great open source libraries:</p>
+						<ul>
+							<li><a href='http://twitter.github.io/bootstrap/' target='_blank'>Twitter Bootstrap</a> as a base for styling and stuff,</li>
+							<li><a href='http://jquery.com/' target='_blank'>jQuery</a> (I don't know how people did it before?!),</li>
+							<li><a href='http://fancyapps.com/fancybox/' target='_blank'>FancyBox</a> to display my instagrams in a lightbox,</li>
+							<li><a href='http://momentjs.com/' target='_blank'>Moment.js</a> for time formatting.</li>
+						</ul>
+						<p>Because having a site that updates itself is totally awesome, I used these lovely APIs:</p>
+						<ul>
+							<li><a href='http://www.last.fm/api' target='_blank'>Last.FM API</a></li>
+							<li><a href='http://www.thisismyjam.com/developers/docs' target='_blank'>ThisIsMyJam API</a></li>
+							<li><a href='http://instagram.com/developer/' target='_blank'>Instagram API</a></li>
+							<li><a href='http://developer.github.com/' target='_blank'>Github API</a></li>
+							<li>The <a href='http://dev.twitter.com/docs' target='_blank'>Twitter API</a> requires authentication for all requests since mid June 2013, which can't be done (securely) in Javascript alone. I used <a href='http://jasonmayes.com/projects/twitterApi' target='_blank'>this script</a> instead.</li>
+						</ul>
+						<p id='lastUpdatedOnGithub'></p>
+						<p><a href='http://github.com/nassia/nassia.be' target='_blank'>Full source for this site</a> is available on Github.</p>
+					</div>
+					<div class="modal-footer">
+						<small>press ESC or</small> <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+					</div>
+				</div>
 			</div>
 		</div>
-		
+
 		<script src="js/nassia.min.js"></script>
 	</body>
 </html>
