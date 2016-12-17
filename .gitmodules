@@ -1,0 +1,18 @@
+[submodule "Twitter-Post-Fetcher"]
+	path = Twitter-Post-Fetcher
+	url = https://github.com/jasonmayes/Twitter-Post-Fetcher.git
+[submodule "vue"]
+	path = vue
+	url = https://github.com/vuejs/vue.git
+[submodule "bootstrap"]
+	path = bootstrap
+	url = https://github.com/twbs/bootstrap.git
+[submodule "Font-Awesome"]
+	path = Font-Awesome
+	url = https://github.com/FortAwesome/Font-Awesome.git
+[submodule "fancyBox"]
+	path = fancyBox
+	url = https://github.com/fancyapps/fancyBox.git
+[submodule "moment"]
+	path = moment
+	url = https://github.com/moment/moment.git
