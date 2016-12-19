@@ -1,5 +1,6 @@
 .DS_Store
 css/nassia.min.css
+css/nassia.css
 js/nassia.min.js
 api_examples/*
 lastfm-mappr
