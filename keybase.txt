@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/nassia
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://nassia.be
+  * I am nassia (https://keybase.io/nassia) on keybase.
+  * I have a public key with fingerprint FA58 DF9C F9ED 0F2B 9FCE  1778 4FC4 DA77 7D34 2767
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01013785bf03cdffed1d55f18e9431b74950246090d5796694da5da3233b9bdfa2160a",
+            "fingerprint": "fa58df9cf9ed0f2b9fce17784fc4da777d342767",
+            "host": "keybase.io",
+            "key_id": "4fc4da777d342767",
+            "kid": "01013785bf03cdffed1d55f18e9431b74950246090d5796694da5da3233b9bdfa2160a",
+            "uid": "4c0be86b5ccea46547410c4aaca69719",
+            "username": "nassia"
+        },
+        "service": {
+            "hostname": "nassia.be",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1485441648,
+    "expire_in": 157680000,
+    "prev": "60827df57d064b9bfc4dbd76cec1472aff010006a0b3960fb3395b84646408fc",
+    "seqno": 11,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.62
+Comment: https://keybase.io/crypto
+
+yMIZAnicrVJZSFVBGL62GImllQUabSepHkzm3DNn5syNtqcWiiBaDKvbrNeTeu7t
+nnOvhvmQFZgVEfUUtJKCEZHRXkJWLxUUBK0Pgi2SaBQJvgTZnJaHoMdmHob55/u+
+//s/5sG4kZG8nJ4+ej01/nlHzuOuo5lIRUteqsFgSbHTiDUY1fLnIWuE9IN4tSuM
+mAFMYFrYsZkCFhdKSWEK21amIwm0TIYhsUEUIkCAsDFBiEBBbUGtqGUxwoSiURMB
+apQZyvUSMp1Ku16gZRW1HaEIV0QKoKKMKC5NjB2ouBbAGAsLRjHCmliV9EOGNseo
+L8vdpK7pS/ynvX/g/7PvzK8+HDDpIGZzLilENsTQBBxSyiki2CQh0Jdpj9ZKjfao
+77vUaCwzdC3rchnGGs7x13s5k5qWSieDJE/W6HJVEKT8WEgLdqZCXJ1k8d8KceZ6
+QkeoGVmZ9t2kZ8RMjeSBG0qa0LEhNBF0ygxZn3LTMu6GCBsjB+gV9pFZLYmAE8VC
+2VgABPWkYX5MYMQlNyGOUqV0cgAgCphFEFDMsojNHIj0Bo7iRjjTDi+ptU3tkya0
+pu8mPBpk0tJovHd386hITl4kd/SI8G9F8sYW/vlxK4rGDHs3zjR9bO3rLJ5Y39L+
+va1lceXx+KZDLcVrGhfYA0NvzbOPqwoO3Dmfg6cXDizamOg6dmdb7+C8Zw+78h9O
+8LPXNtpryVR3b/NgU0V/eTCOnX5dmjk04njNpv0zL8dWL++uvrZsRnPbpJN9Z6s+
+eqVkxv38Uz33poBs7prDk4p231q65Cl3K7cOzsm8GP+k5ERDT8X83t53c5uah26/
+jJePraPvV33rbry4snPyhyv9xqz10yuzpUs+HOxZuN1JkH34ySt/LumwYos2nPjc
++qg4XVJU0D75JqWXLhQVXH1zbuW62i18f4bbXce2Xp3W3Vn4dYyxY/aXI3fv79nF
+5Rl0su7T8A/wBTq5
+=dex1
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/nassia
+
+==================================================================
